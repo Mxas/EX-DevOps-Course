@@ -34,3 +34,8 @@ Install web server (nginx/apache) to one instance;
 # Web Page php script file
 
 [index.php](index.php)
+
+
+# Curl call from instance A
+
+![curl.png](pic%2Fcurl.png)[index.php](index.php)
