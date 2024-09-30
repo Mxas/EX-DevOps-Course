@@ -1,4 +1,4 @@
-Tasks (mandatory):
+# Tasks (mandatory):
 Sign up for AWS, familiarize yourself with the basic elements of the AWS Home Console GUI.
 Explore AWS Billing for checking current costs.
 Create two EC2 Instance t2.micro with different operating systems (Amazon linux / Ubuntu ...). Try to stop them, restart, delete, recreate.
@@ -17,6 +17,20 @@ Install web server (nginx/apache) to one instance;
 
 # Security groups
 
-![Instance A](pic%2FSG-A.png)
+![Instance A SG](pic%2FSG-A.png)
 
-![Instance 5](pic%2FSG-5.png)
+![Instance B SG](pic%2FSG-B.png)
+
+
+# Ping
+
+![ssh-pings.png](pic%2Fssh-pings.png)
+
+# SSH connection 
+
+![ssh-pings.png](pic%2Fssh-pings.png)
+
+
+# Web Page php script file
+
+[index.php](index.php)
