@@ -38,4 +38,4 @@ Install web server (nginx/apache) to one instance;
 
 # Curl call from instance A
 
-![curl.png](pic%2Fcurl.png)[index.php](index.php)
+![curl.png](pic%2Fcurl.png)
