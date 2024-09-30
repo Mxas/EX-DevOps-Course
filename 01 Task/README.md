@@ -35,6 +35,8 @@ Install web server (nginx/apache) to one instance;
 
 [index.php](index.php)
 
+Web page view:
+![web-page.png](pic%2Fweb-page.png)
 
 # Curl call from instance A
 
