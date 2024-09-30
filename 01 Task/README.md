@@ -28,7 +28,7 @@ Install web server (nginx/apache) to one instance;
 
 # SSH connection 
 
-![ssh-pings.png](pic%2Fssh-pings.png)
+![ssh-connections.png](pic%2Fssh-connections.png)
 
 
 # Web Page php script file
