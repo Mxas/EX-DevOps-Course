@@ -17,18 +17,18 @@ Install web server (nginx/apache) to one instance;
 
 # Security groups
 
-![Instance A SG](pic%2FSG-A.png)
+![Instance A SG](https://temp-teask01.s3.us-east-2.amazonaws.com/SG-A.png)
 
-![Instance B SG](pic%2FSG-B.png)
+![Instance B SG](https://temp-teask01.s3.us-east-2.amazonaws.com/SG-B.png)
 
 
 # Ping
 
-![ssh-pings.png](pic%2Fssh-pings.png)
+![ssh-pings.png](https://temp-teask01.s3.us-east-2.amazonaws.com/ssh-pings.png)
 
 # SSH connection 
 
-![ssh-connections.png](pic%2Fssh-connections.png)
+![ssh-connections.png](https://temp-teask01.s3.us-east-2.amazonaws.com/ssh-connections.png)
 
 
 # Web Page php script file
@@ -36,8 +36,8 @@ Install web server (nginx/apache) to one instance;
 [index.php](index.php)
 
 Web page view:
-![web-page.png](pic%2Fweb-page.png)
+![web-page.png](https://temp-teask01.s3.us-east-2.amazonaws.com/web-page.png)
 
 # Curl call from instance A
 
-![curl.png](pic%2Fcurl.png)
+![curl.png](https://temp-teask01.s3.us-east-2.amazonaws.com/curl.png)
