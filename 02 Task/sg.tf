@@ -106,6 +106,14 @@ resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-B-http" {
   to_port           = 80
 }
 
+resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-B-proxy" {
+  security_group_id = aws_security_group.EC2-SG-Instance-B.id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 3128
+  ip_protocol       = "tcp"
+  to_port           = 3128
+}
+
 resource "aws_vpc_security_group_egress_rule" "EC2-SG-Instance-B-outgoing_all_in_vpc" {
   security_group_id = aws_security_group.EC2-SG-Instance-B.id
   cidr_ipv4         = "0.0.0.0/0"

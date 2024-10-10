@@ -28,3 +28,14 @@ echo \
 sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
+# Proxy
+
+sudo apt install -y squid
+systemctl enable squid
+sed -i 's/http_access deny all/http_access allow all/' /etc/squid/squid.conf
+systemctl start squid
+sudo systemctl status squid
+sudo systemctl restart squid
+
