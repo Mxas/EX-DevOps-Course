@@ -1,0 +1,375 @@
+$ terraform plan -var-file=env/t1.tfvars
+data.aws_ami.linux: Reading...
+data.aws_vpc.main: Reading...
+data.aws_ami.ubuntu: Reading...
+data.aws_ami.linux: Read complete after 1s [id=ami-0592c673f0b1e7665]
+data.aws_vpc.main: Read complete after 1s [id=vpc-04cd8ea30091454f5]
+data.aws_ami.ubuntu: Read complete after 1s [id=ami-0246435676a27a0f9]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.Instance-A-Linux will be created
+  + resource "aws_instance" "Instance-A-Linux" {
+      + ami                                  = "ami-0592c673f0b1e7665"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = false
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_lifecycle                   = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "mk--ex-keys"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + spot_instance_request_id             = (known after apply)
+      + subnet_id                            = "subnet-0badf3a2e7169eda7"
+      + tags                                 = {
+          + "Name" = "Instance-A-Linux"
+        }
+      + tags_all                             = {
+          + "Environment" = "Test"
+          + "Name"        = "Instance-A-Linux"
+          + "Service"     = "Example"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification (known after apply)
+
+      + cpu_options (known after apply)
+
+      + ebs_block_device (known after apply)
+
+      + enclave_options (known after apply)
+
+      + ephemeral_block_device (known after apply)
+
+      + instance_market_options (known after apply)
+
+      + maintenance_options (known after apply)
+
+      + metadata_options (known after apply)
+
+      + network_interface (known after apply)
+
+      + private_dns_name_options (known after apply)
+
+      + root_block_device (known after apply)
+    }
+
+  # aws_instance.Instance-B-Ubuntu will be created
+  + resource "aws_instance" "Instance-B-Ubuntu" {
+      + ami                                  = "ami-0246435676a27a0f9"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = (known after apply)
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_lifecycle                   = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "mk--ex-keys"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + spot_instance_request_id             = (known after apply)
+      + subnet_id                            = "subnet-0badf3a2e7169eda7"
+      + tags                                 = {
+          + "Name" = "Instance-B-Ubuntu"
+        }
+      + tags_all                             = {
+          + "Environment" = "Test"
+          + "Name"        = "Instance-B-Ubuntu"
+          + "Service"     = "Example"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = "6e497d92a8db2cbec37e63878065dc16319807ca"
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = true
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification (known after apply)
+
+      + cpu_options (known after apply)
+
+      + ebs_block_device (known after apply)
+
+      + enclave_options (known after apply)
+
+      + ephemeral_block_device (known after apply)
+
+      + instance_market_options (known after apply)
+
+      + maintenance_options (known after apply)
+
+      + metadata_options (known after apply)
+
+      + network_interface (known after apply)
+
+      + private_dns_name_options (known after apply)
+
+      + root_block_device (known after apply)
+    }
+
+  # aws_security_group.EC2-SG-Instance-A will be created
+  + resource "aws_security_group" "EC2-SG-Instance-A" {
+      + arn                    = (known after apply)
+      + description            = "EC2 Testing for Instance-A Linux"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = "EC2-SG-Instance-A"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "EC2-SG-Instance-A"
+        }
+      + tags_all               = {
+          + "Environment" = "Test"
+          + "Name"        = "EC2-SG-Instance-A"
+          + "Service"     = "Example"
+        }
+      + vpc_id                 = "vpc-04cd8ea30091454f5"
+    }
+
+  # aws_security_group.EC2-SG-Instance-B will be created
+  + resource "aws_security_group" "EC2-SG-Instance-B" {
+      + arn                    = (known after apply)
+      + description            = "EC2 Testing for Instance-B Ubuntu"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = "EC2-SG-Instance-B"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "EC2-SG-Instance-B"
+        }
+      + tags_all               = {
+          + "Environment" = "Test"
+          + "Name"        = "EC2-SG-Instance-B"
+          + "Service"     = "Example"
+        }
+      + vpc_id                 = "vpc-04cd8ea30091454f5"
+    }
+
+  # aws_vpc_security_group_egress_rule.EC2-SG-Instance-A-outgoing_all_in_vpc will be created
+  + resource "aws_vpc_security_group_egress_rule" "EC2-SG-Instance-A-outgoing_all_in_vpc" {
+      + arn                          = (known after apply)
+      + id                           = (known after apply)
+      + ip_protocol                  = "-1"
+      + referenced_security_group_id = (known after apply)
+      + security_group_id            = (known after apply)
+      + security_group_rule_id       = (known after apply)
+      + tags_all                     = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+    }
+
+  # aws_vpc_security_group_egress_rule.EC2-SG-Instance-B-outgoing_all_in_vpc will be created
+  + resource "aws_vpc_security_group_egress_rule" "EC2-SG-Instance-B-outgoing_all_in_vpc" {
+      + arn                    = (known after apply)
+      + cidr_ipv4              = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + ip_protocol            = "-1"
+      + security_group_id      = (known after apply)
+      + security_group_rule_id = (known after apply)
+      + tags_all               = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+    }
+
+  # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-A-http will be created
+  + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-A-http" {
+      + arn                          = (known after apply)
+      + from_port                    = 80
+      + id                           = (known after apply)
+      + ip_protocol                  = "tcp"
+      + referenced_security_group_id = (known after apply)
+      + security_group_id            = (known after apply)
+      + security_group_rule_id       = (known after apply)
+      + tags_all                     = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+      + to_port                      = 80
+    }
+
+  # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-A-https will be created
+  + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-A-https" {
+      + arn                          = (known after apply)
+      + from_port                    = 443
+      + id                           = (known after apply)
+      + ip_protocol                  = "tcp"
+      + referenced_security_group_id = (known after apply)
+      + security_group_id            = (known after apply)
+      + security_group_rule_id       = (known after apply)
+      + tags_all                     = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+      + to_port                      = 443
+    }
+
+  # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-A-ping will be created
+  + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-A-ping" {
+      + arn                          = (known after apply)
+      + from_port                    = 8
+      + id                           = (known after apply)
+      + ip_protocol                  = "icmp"
+      + referenced_security_group_id = (known after apply)
+      + security_group_id            = (known after apply)
+      + security_group_rule_id       = (known after apply)
+      + tags_all                     = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+      + to_port                      = -1
+    }
+
+  # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-A-ssh will be created
+  + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-A-ssh" {
+      + arn                          = (known after apply)
+      + from_port                    = 22
+      + id                           = (known after apply)
+      + ip_protocol                  = "tcp"
+      + referenced_security_group_id = (known after apply)
+      + security_group_id            = (known after apply)
+      + security_group_rule_id       = (known after apply)
+      + tags_all                     = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+      + to_port                      = 22
+    }
+
+  # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-B-http will be created
+  + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-B-http" {
+      + arn                    = (known after apply)
+      + cidr_ipv4              = "0.0.0.0/0"
+      + from_port              = 80
+      + id                     = (known after apply)
+      + ip_protocol            = "tcp"
+      + security_group_id      = (known after apply)
+      + security_group_rule_id = (known after apply)
+      + tags_all               = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+      + to_port                = 80
+    }
+
+  # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-B-https will be created
+  + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-B-https" {
+      + arn                    = (known after apply)
+      + cidr_ipv4              = "0.0.0.0/0"
+      + from_port              = 443
+      + id                     = (known after apply)
+      + ip_protocol            = "tcp"
+      + security_group_id      = (known after apply)
+      + security_group_rule_id = (known after apply)
+      + tags_all               = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+      + to_port                = 443
+    }
+
+  # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-B-ping will be created
+  + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-B-ping" {
+      + arn                    = (known after apply)
+      + cidr_ipv4              = "0.0.0.0/0"
+      + from_port              = 8
+      + id                     = (known after apply)
+      + ip_protocol            = "icmp"
+      + security_group_id      = (known after apply)
+      + security_group_rule_id = (known after apply)
+      + tags_all               = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+      + to_port                = -1
+    }
+
+  # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-B-ssh will be created
+  + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-B-ssh" {
+      + arn                    = (known after apply)
+      + cidr_ipv4              = "78.31.189.47/32"
+      + from_port              = 22
+      + id                     = (known after apply)
+      + ip_protocol            = "tcp"
+      + security_group_id      = (known after apply)
+      + security_group_rule_id = (known after apply)
+      + tags_all               = {
+          + "Environment" = "Test"
+          + "Service"     = "Example"
+        }
+      + to_port                = 22
+    }
+
+Plan: 14 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + Instance-A-Linux-private-ip  = (known after apply)
+  + Instance-B-Ubuntu-private-ip = (known after apply)
+  + Instance-B-Ubuntu-public-ip  = (known after apply)
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

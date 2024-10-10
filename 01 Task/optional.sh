@@ -90,7 +90,8 @@ INSTANCE_B=$(aws ec2 run-instances \
 	--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Instanc-B}]' \
 	--query 'Instances[0].InstanceId' --output text)
 
-aws ec2 wait instance-status-ok --instance-ids "$INSTANCE_B" --profile mk-ex --region eu-central-1
+# aws ec2 wait instance-status-ok --instance-ids "$INSTANCE_B" --profile mk-ex --region eu-central-1
+aws ec2 wait instance-running --instance-ids "$INSTANCE_B" --profile mk-ex --region eu-central-1
 IP_B=$(aws ec2 describe-instances --instance-ids "$INSTANCE_B" \
     --profile mk-ex --region eu-central-1 \
     --query 'Reservations[*].Instances[*].PublicIpAddress' \
@@ -110,6 +111,10 @@ aws ec2 stop-instances \
     --instance-ids "$INSTANCE_A" "$INSTANCE_B"
 
 aws ec2 terminate-instances \
+    --profile mk-ex --region eu-central-1 \
+    --instance-ids "$INSTANCE_A" "$INSTANCE_B"
+
+aws ec2 wait instance-terminated \
     --profile mk-ex --region eu-central-1 \
     --instance-ids "$INSTANCE_A" "$INSTANCE_B"
 
