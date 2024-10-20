@@ -29,4 +29,5 @@ replay_pid*
 /.terraform/
 */.terraform/
 02 Task/env
+03 Task/env
 
