@@ -16,6 +16,8 @@ jobs:
    - uses: actions/checkout@v4
    - name: Build the Docker image
      working-directory: ./03 Task
-     run: docker build ./files/app/ -t spring-image:latest
+     run: |
+       ls -l
+       docker build ./files/app/ -t spring-image:latest
    - name: Publish image
      run: echo "Skipping" #docker build -t spring-image:latest -f files/app/Dockerfile .
