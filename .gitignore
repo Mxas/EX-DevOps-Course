@@ -28,6 +28,6 @@ replay_pid*
 /.idea/
 /.terraform/
 */.terraform/
-02 Task/env
-03 Task/env
+Task02/env
+Task03/env
 

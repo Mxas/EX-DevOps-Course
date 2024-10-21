@@ -2,7 +2,7 @@
 DevOps Company Course
 
 
-- [1st Task](01%20Task%2FREADME.md)
-- - [Optional 1+2](01%20Task%2FREADME-OPT.md)
-- [2nd Task](02%20Task%2FREADME.md)
-  - [Extra](02%20Task%2FREADME-EXTRA.md)
+- [1st Task](Task01%2FREADME.md)
+- - [Optional 1+2](Task01%2FREADME-OPT.md)
+- [2nd Task](Task02%2FREADME.md)
+  - [Extra](Task02%2FREADME-EXTRA.md)
