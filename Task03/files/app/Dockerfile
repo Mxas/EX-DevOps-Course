@@ -7,8 +7,8 @@
 
 FROM ubuntu
 
-COPY Task03/files/app/app-v1.jar libs/api.jar
-COPY Task03/files/app/bootstrap.sh bootstrap.sh
+COPY ./Task03/files/app/app-v1.jar libs/api.jar
+COPY ./Task03/files/app/bootstrap.sh bootstrap.sh
 
 RUN chmod +x /bootstrap.sh
 
