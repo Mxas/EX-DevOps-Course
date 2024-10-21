@@ -1,18 +1,23 @@
-# name: Docker Image CI
+name: Build and Publish Image
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
+on:
+ push:
+   branches: [ "main" ]
+ pull_request:
+   branches: [ "main" ]
 
-# jobs:
+jobs:
 
-#   build:
+ build:
 
-#     runs-on: ubuntu-latest
+   runs-on: ubuntu-latest
 
-#     steps:
-#     - uses: actions/checkout@v4
-#     - name: Build the Docker image
-#       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+   steps:
+   - uses: actions/checkout@v4
+   - name: Build the Docker image
+     run: |
+       cd "03 Task"
+       ls -l
+       docker build -t spring-image:latest -f files/app/Dockerfile
+   - name: Publish image
+     run: docker build -t spring-image:latest -f files/app/Dockerfile .
