@@ -349,7 +349,7 @@ Terraform will perform the following actions:
   # aws_vpc_security_group_ingress_rule.EC2-SG-Instance-B-ssh will be created
   + resource "aws_vpc_security_group_ingress_rule" "EC2-SG-Instance-B-ssh" {
       + arn                    = (known after apply)
-      + cidr_ipv4              = "78.31.189.47/32"
+      + cidr_ipv4              = "XXXXXX/32"
       + from_port              = 22
       + id                     = (known after apply)
       + ip_protocol            = "tcp"

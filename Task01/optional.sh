@@ -19,7 +19,7 @@ echo "Security Group A ID: $SG_A"
 aws ec2 authorize-security-group-ingress \
     --group-id "$SG_A" \
 	--profile mk-ex --region eu-central-1 \
-    --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=78.31.189.47/32}] \
+    --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=XXXXXX/32}] \
 	                 IpProtocol=icmp,FromPort=8,ToPort=-1,IpRanges=[{CidrIp=0.0.0.0/0}] 
 
 
@@ -36,7 +36,7 @@ echo "Security Group B ID: $SG_B"
 aws ec2 authorize-security-group-ingress \
     --group-id "$SG_B" \
 	--profile mk-ex --region eu-central-1 \
-    --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=78.31.189.47/32}] \
+    --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=XXXXXX/32}] \
 	                 IpProtocol=icmp,FromPort=8,ToPort=-1,IpRanges=[{CidrIp=0.0.0.0/0}] \
 					 IpProtocol=tcp,FromPort=80,ToPort=80,IpRanges=[{CidrIp=0.0.0.0/0}] 
 
