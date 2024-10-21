@@ -6,3 +6,4 @@ DevOps Company Course
 - - [Optional 1+2](Task01%2FREADME-OPT.md)
 - [2nd Task](Task02%2FREADME.md)
   - [Extra](Task02%2FREADME-EXTRA.md)
+- [3rd Task](Task03%2FREADME.md)

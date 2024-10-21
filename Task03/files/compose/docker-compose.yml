@@ -1,0 +1,47 @@
+version: '2'
+services:
+
+  web_service_docker:
+    image: 'web-image:v1'
+
+    deploy:
+      mode: replicated
+      replicas: 5
+      endpoint_mode: vip
+    ports:
+      - 8081-8085:80
+
+  posgress_sql_service:
+    image: 'postgres'
+    container_name: posgress_sql_service
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - 5432:5432
+    networks:
+      - common-network
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+
+
+  app_service:
+    image: 'mxas1/spring-image:latest'
+    container_name: app_service
+    environment:
+      - DEVOPS=${DEVOPS}
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+    ports:
+      - 8080:8080
+    networks:
+      - common-network
+    depends_on:
+      - posgress_sql_service
+
+
+networks:
+  common-network:
+#    driver: bridge
+

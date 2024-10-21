@@ -1,6 +1,6 @@
 #FROM openjdk:17-oracle
 #
-#COPY files/app/app-v1.jar libs/api.jar
+#COPY app-v1.jar libs/api.jar
 #
 #ENTRYPOINT ["java","-jar","/libs/api.jar"]
 
