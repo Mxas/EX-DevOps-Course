@@ -18,6 +18,7 @@ jobs:
      run: |
        cd "03 Task"
        ls -l
-       docker build -t spring-image:latest -f files/app/Dockerfile
+       echo "Starting build"
+       docker build -f files/app/Dockerfile -t spring-image:latest
    - name: Publish image
-     run: docker build -t spring-image:latest -f files/app/Dockerfile .
+     run: echo "Skipping" #docker build -t spring-image:latest -f files/app/Dockerfile .
