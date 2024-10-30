@@ -1,4 +1,4 @@
-Task 3. Using AWS Ec2 instance for playing with docker
+Task 3. Using AWS Ec2 instance for playing with docker.
 
 # Terraform commands
 
