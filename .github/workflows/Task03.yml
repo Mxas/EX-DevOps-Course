@@ -1,10 +1,14 @@
-name: Build and Publish Image
+name: Task03 Build and Publish Image
 
 on:
  push:
    branches: [ "main" ]
+   paths:
+     - Task03/**
  pull_request:
    branches: [ "main" ]
+   paths:
+     - Task03/**
 
 jobs:
 
