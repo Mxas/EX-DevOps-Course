@@ -10,6 +10,7 @@ Task 4
 
 
 https://medium.com/@prashant.gaur.dev/installing-jenkins-on-a-docker-container-a-step-by-step-guide-6c7b4a81c4fb
+https://medium.com/@mudasirhaji/complete-step-by-step-jenkins-cicd-with-github-integration-aae3961b6e33
 
 docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_data:/var/jenkins_home --name jenkins jenkins/jenkins
 
