@@ -30,7 +30,8 @@ variable "aws-ami-name-filter-linux" {
 variable "instance-type" {
   description = "Instance type"
   type        = string
-  default     = "t2.micro"
+  default     = "t3a.medium"
+  # default     = "t2.micro"
 }
 
 variable "subnet-id" {

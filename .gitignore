@@ -32,3 +32,4 @@ replay_pid*
 Task02/env
 Task03/env
 /Task04/awsinfra/env/
+/Task04/awsinfra/.terraform/
