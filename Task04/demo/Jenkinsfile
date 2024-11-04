@@ -9,6 +9,18 @@ pipeline {
                 }
             }
         }
+        stage('Spot Bugs') {
+            steps {
+                dir('Task04/demo') {
+                  sh './gradlew spotbugsMain'
+                }
+            }
+            post {
+                always {
+                    junit '**/build/reports/spotbugs.html'
+                }
+            }
+        }
         stage('Unit Tests') {
             steps {
                 dir('Task04/demo') {
