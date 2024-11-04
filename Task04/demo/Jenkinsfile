@@ -74,5 +74,6 @@ pipeline {
 }
 
 def gradlew(String... args) {
+    ah "cd Task04/demo"
     sh "./gradlew ${args.join(' ')} -s"
 }
