@@ -1,24 +1,19 @@
 pipeline {
     agent any
 
-    triggers {
-        pollSCM('*/5 * * * *')
-    }
-
     stages {
-        stage('Compile') {
+        stage('Check Style') {
             steps {
-                sh 'echo "Starting compile"'
-                sh 'pwd'
-                sh 'ls -l'
                 dir('Task04/demo') {
-                  sh './gradlew clean --no-daemon'
+                  sh './gradlew checkstyleMain'
                 }
             }
         }
         stage('Unit Tests') {
             steps {
-                sh 'echo "Starting Unit Tests"'
+                dir('Task04/demo') {
+                  sh './gradlew test'
+                }
             }
             post {
                 always {
@@ -26,6 +21,12 @@ pipeline {
                 }
             }
         }
-
+        stage('Build') {
+            steps {
+                dir('Task04/demo') {
+                  sh './gradlew build'
+                }
+            }
+        }
     }
 }
