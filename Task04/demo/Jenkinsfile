@@ -9,9 +9,11 @@ pipeline {
         stage('Compile') {
             steps {
                 sh 'echo "Starting compile"'
-                sh 'cd Task04/demo'
+                sh 'pwd'
                 sh 'ls -l'
-                sh './gradlew clean --no-daemon'
+                dir('Task04/demo') {
+                  sh './gradlew clean --no-daemon'
+                }
             }
         }
         stage('Unit Tests') {
