@@ -8,6 +8,11 @@ pipeline {
                   sh './gradlew checkstyleMain'
                 }
             }
+//             post {
+//                 always {
+//                     junit '**/build/reports/checkstyle/main.html'
+//                 }
+//             }
         }
         stage('Spot Bugs') {
             steps {
@@ -15,11 +20,11 @@ pipeline {
                   sh './gradlew spotbugsMain'
                 }
             }
-            post {
-                always {
-                    junit '**/build/reports/spotbugs.html'
-                }
-            }
+//             post {
+//                 always {
+//                     junit '**/build/reports/spotbugs.html'
+//                 }
+//             }
         }
         stage('Unit Tests') {
             steps {
@@ -36,7 +41,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Task04/demo') {
-                  sh './gradlew build'
+                  sh './gradlew build -x test'
                 }
             }
         }
