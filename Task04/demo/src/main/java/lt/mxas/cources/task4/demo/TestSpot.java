@@ -9,4 +9,4 @@ public class TestSpot {
 	}
 	//
 }//
-//ki
+//kick
