@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  jenkins_agent1:
+    image: jenkins/ssh-agent:jdk11
+    privileged: true
+    user: root
+    container_name: jenkins_agent1
+    ports:
+      - "22:22"
+    environment:
+      - JENKINS_AGENT_SSH_PUBKEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDLI9U8UW974EOEwVTu7qrQoV1u5s637nW26jmqyVBC7HFRhjTEOxPHBKHUKBcGt1546xaUCMZOBWe60ZfVKhN2hINgkI1Gh4w7pExYEBTsDAVQPVLs2artsKiLCplAz9tCnz0Wxs1IOKMClncu26IlbLSeNhJrCCKFKnwncxJghJ1zKkEh0gPS+dU1F4XHG12VWkg57buQDvhc5PHSIPiZ19H0v4RUWnuEVK2lDRAZK8eBFvnvbntN2YQiaaj1WR7mOzr4VzMsGIVwjnUQTlJiORQlpM4C11ymmg1AnNXrI6CWDOrhPb4Xi/xpnDQptZ0iutPAUWcKvtcdo+JTvgY7lhNhdGv3etJbe+Kh5Pm/p92NECYqbiG0Jyk/pxITGq0iiBXPQdIgJV84ug33e8OjTPnKDSBsPXaefsT55GFw1ADcKGcFdBXzXddI418+b5ja7ZzcuyFFOotLq22izWbDr6Bcj5goU/QLnWLJK+O5DJhlN8zUovvhH9Sc0/r9xe0= root@ip-172-31-43-180"
+    volumes:
+     - "/home/ubuntu/jenkins_agent1_home:/var/jenkins_home"
+     - /usr/bin/docker:/usr/bin/docker
+     - /var/run/docker.sock:/var/run/docker.sock
