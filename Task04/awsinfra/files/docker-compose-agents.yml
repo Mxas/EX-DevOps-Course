@@ -6,16 +6,33 @@ services:
     image: jenkins/ssh-agent:latest
     privileged: true
     user: root
-    expose:
-      - 22
+    ports:
+      - "26:22"
     environment:
-      - JENKINS_AGENT_SSH_PUBKEY=&{JENKINS_AGENT_SSH_PUB_KEY}
+      - JENKINS_AGENT_SSH_PUBKEY=${JENKINS_AGENT_SSH_PUB_KEY}
     volumes:
      - "/home/ubuntu/jenkins_agent1_home:/var/jenkins_home"
      - /usr/bin/docker:/usr/bin/docker
      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - common-network
+
+  jenkins_agent2:
+    image: jenkins/ssh-agent:latest
+    privileged: true
+    user: root
+    container_name: jenkins_agent2
+    ports:
+      - "22:22"
+    environment:
+      - JENKINS_AGENT_SSH_PUBKEY=${JENKINS_AGENT_SSH_PUB_KEY}
+    volumes:
+      - "/home/ubuntu/jenkins_agent1_home:/var/jenkins_home"
+      - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - common-network
+
 
 networks:
   common-network:

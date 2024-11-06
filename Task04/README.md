@@ -87,6 +87,9 @@ Jenkins agent config ![agent_config.png](docs%2Fagent_config.png)
 
 Agent ![aggent_launch.png](docs%2Faggent_launch.png)
 
+Jenkins test with job's ![multiple_runnig.png](docs%2Fmultiple_runnig.png)
+
+
 # Extra 3
 
 Added volumes  
