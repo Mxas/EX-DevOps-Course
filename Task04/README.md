@@ -81,6 +81,12 @@ Agent docker-compose file:  [docker-compose-agents.yml](awsinfra%2Ffiles%2Fdocke
     docker-compose -f docker-compose-agents.yml up -d 
 
 
+Jenkins Credentials jenkins ![jenkins_private_key.png](docs%2Fjenkins_private_key.png)
+
+Jenkins agent config ![agent_config.png](docs%2Fagent_config.png)
+
+Agent ![aggent_launch.png](docs%2Faggent_launch.png)
+
 # Extra 3
 
 Added volumes  
