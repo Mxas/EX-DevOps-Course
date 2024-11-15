@@ -1,0 +1,110 @@
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jenkins-secret
+type: Opaque
+data:
+  public-rsa: c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCZ1FETEk5VThVVzk3NEVPRXdWVHU3cXJRb1YxdTVzNjM3blcyNmptcXlWQkM3SEZSaGpURU94UEhCS0hVS0JjR3QxNTQ2eGFVQ01aT0JXZTYwWmZWS2hOMmhJTmdrSTFHaDR3N3BFeFlFQlRzREFWUVBWTHMyYXJ0c0tpTENwbEF6OXRDbnowV3hzMUlPS01DbG5jdTI2SWxiTFNlTmhKckNDS0ZLbnduY3hKZ2hKMXpLa0VoMGdQUytkVTFGNFhIRzEyVldrZzU3YnVRRHZoYzVQSFNJUGlaMTlIMHY0UlVXbnVFVksybERSQVpLOGVCRnZudmJudE4yWVFpYWFqMVdSN21PenI0VnpNc0dJVndqblVRVGxKaU9SUWxwTTRDMTF5bW1nMUFuTlhySTZDV0RPcmhQYjRYaS94cG5EUXB0WjBpdXRQQVVXY0t2dGNkbytKVHZnWTdsaE5oZEd2M2V0SmJlK0toNVBtL3A5Mk5FQ1lxYmlHMEp5ay9weElUR3EwaWlCWFBRZElnSlY4NHVnMzNlOE9qVFBuS0RTQnNQWGFlZnNUNTVHRncxQURjS0djRmRCWHpYZGRJNDE4K2I1amE3WnpjdXlGRk9vdExxMjJpeldiRHI2QmNqNWdvVS9RTG5XTEpLK081REpobE44elVvdnZoSDlTYzAvcjl4ZTA9
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+      containers:
+        - name: jenkins
+          image: jenkins/jenkins:lts
+          ports:
+            - name: http-port
+              containerPort: 8080
+            - name: jnlp-port
+              containerPort: 50000
+          volumeMounts:
+            - name: jenkins-vol
+              mountPath: /var/jenkins_vol
+      volumes:
+        - name: jenkins-vol
+          emptyDir: { }
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+#spec:
+#  type: NodePort
+#  ports:
+#    - port: 8080
+#      targetPort: 8080
+#      nodePort: 30000
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000
+  selector:
+    app: jenkins
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "jenkins-ssh-agent"
+  labels:
+    name: "jenkins-ssh-agent"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: "jenkins-ssh-agent"
+  template:
+    metadata:
+      labels:
+        name: "jenkins-ssh-agent"
+    spec:
+      containers:
+        - name: ssh-agent
+          image: jenkins/ssh-agent
+          env:
+            - name: JENKINS_AGENT_SSH_PUBKEY
+              valueFrom:
+                secretKeyRef:
+                  name: jenkins-secret
+                  key: public-rsa
+          livenessProbe:
+            tcpSocket:
+              port: 22
+            initialDelaySeconds: 60
+            timeoutSeconds: 1
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-ssh-agent
+spec:
+  selector:
+    name: jenkins-ssh-agent
+  ports:
+    - name: ssh
+      port: 22
+      protocol: TCP

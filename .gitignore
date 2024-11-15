@@ -9,6 +9,7 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+.mtj.tmp/
 
 # Package Files #
 *.jar
@@ -30,8 +31,10 @@ replay_pid*
 /.idea/
 /.terraform/
 */.terraform/
+**/.terraform/
 Task02/env
 Task03/env
 /Task04/awsinfra/env/
 /Task04/awsinfra/.terraform/
 /Task04/test/
+/Task05/awsinfra/.terraform/
