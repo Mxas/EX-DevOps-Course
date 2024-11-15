@@ -38,3 +38,4 @@ Task03/env
 /Task04/awsinfra/.terraform/
 /Task04/test/
 /Task05/awsinfra/.terraform/
+/Task05/awsinfra/env/
