@@ -1,1 +1,13 @@
+
+asdsa
+sadsa
+sadsa
+
 spring.application.name: demo
+
+
+
+
+my:
+  dummy:
+    config = 123
